@@ -9,9 +9,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [AppComponent, ContactListComponent],
+  declarations: [AppComponent, ContactListComponent, ContactDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,6 +22,7 @@ import { MatTableModule } from '@angular/material/table';
     MatListModule,
     MatButtonModule,
     MatTableModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

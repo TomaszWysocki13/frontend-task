@@ -9,6 +9,15 @@ import { CONTACTS } from '../mock-contacts';
 export class ContactListComponent implements OnInit {
   contacts = CONTACTS;
 
+  displayedColumns: string[] = [
+    'nickname',
+    'name',
+    'surname',
+    'email',
+    'phone',
+    'sex',
+  ];
+
   constructor() {}
 
   ngOnInit(): void {}

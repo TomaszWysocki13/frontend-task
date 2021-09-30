@@ -1,7 +1,34 @@
-<mat-list>
-  <mat-list-item *ngFor="let contact of contacts">
-    {{ contact.name }} {{ contact.surname }}&nbsp;<span class="number"
-      >({{ contact.phone }})</span
-    >
-  </mat-list-item>
-</mat-list>
+<table mat-table [dataSource]="contacts" class="">
+  <ng-container matColumnDef="nickname">
+    <th mat-header-cell *matHeaderCellDef>Pseudonim</th>
+    <td mat-cell *matCellDef="let contact">{{ contact.nickname }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Imię</th>
+    <td mat-cell *matCellDef="let contact">{{ contact.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="surname">
+    <th mat-header-cell *matHeaderCellDef>Nazwisko</th>
+    <td mat-cell *matCellDef="let contact">{{ contact.surname }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>E-mail</th>
+    <td mat-cell *matCellDef="let contact">{{ contact.email }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef>Nr telefonu</th>
+    <td mat-cell *matCellDef="let contact">{{ contact.phone }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="sex">
+    <th mat-header-cell *matHeaderCellDef>Płeć</th>
+    <td mat-cell *matCellDef="let contact">{{ contact.sex }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
