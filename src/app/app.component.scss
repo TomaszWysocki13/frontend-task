@@ -4,3 +4,10 @@
   border-color: #eee;
   padding: 15px;
 }
+nav {
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

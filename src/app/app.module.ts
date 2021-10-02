@@ -11,9 +11,20 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
 import { MatIconModule } from '@angular/material/icon';
+import { AddContactComponent } from './add-contact/add-contact.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
-  declarations: [AppComponent, ContactListComponent, ContactDetailsComponent],
+  declarations: [
+    AppComponent,
+    ContactListComponent,
+    ContactDetailsComponent,
+    AddContactComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +34,12 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatTableModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -14,9 +14,16 @@ ul {
   font-size: 0.8em;
 }
 
+.table-container {
+  @media screen and (max-width: 991px) {
+    overflow-x: scroll;
+  }
+}
 table {
   width: 100%;
+  table-layout: fixed;
+  min-width: 800px;
   td {
-    width: calc(100% / 6);
+    // width: calc(100% / 6);
   }
 }
