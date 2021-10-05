@@ -1,1 +1,17 @@
-<p>contact-details works!</p>
+<div *ngIf="contact">
+  <h2>Edycja kontaktu: {{ contact.nickname }}</h2>
+  <div><span>id: </span>{{ contact.id }}</div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Imię</mat-label>
+      <input matInput id="contact-name" [(ngModel)]="contact.name" />
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="text-center">
+  <button mat-flat-button routerLink="/">Powrót</button>
+  <button mat-flat-button color="primary" (click)="save()">
+    Zapisz zmiany
+  </button>
+</div>

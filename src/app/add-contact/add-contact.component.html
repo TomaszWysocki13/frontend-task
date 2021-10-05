@@ -1,8 +1,66 @@
-<p>
-  <mat-form-field appearance="outline">
-    <mat-label>Imię</mat-label>
-    <input matInput />
-  </mat-form-field>
-</p>
+<table cellspacing="0">
+  <tr>
+    <td colspan="2">
+      <mat-form-field appearance="outline">
+        <mat-label>Pseudonim</mat-label>
+        <input maxlength="10" matInput #contactNickname />
+        <button
+          *ngIf="contactNickname.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="contactNickname.value = ''"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        <mat-hint align="end">{{ contactNickname.value.length }} / 10</mat-hint>
+      </mat-form-field>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <mat-form-field appearance="outline">
+        <mat-label>Imię</mat-label>
+        <input matInput #contactName />
+        <button
+          *ngIf="contactName.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="contactName.value = ''"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field appearance="outline">
+        <mat-label>Nazwisko</mat-label>
+        <input matInput #contactSurname />
+        <button
+          *ngIf="contactSurname.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="contactSurname.value = ''"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </td>
+  </tr>
+</table>
 
-<button mat-flat-button color="primary" routerLink="/">Powrót</button>
+<div class="text-center">
+  <button mat-flat-button routerLink="/">Powrót</button>
+
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="
+      add(contactName.value, contactNickname.value, contactSurname.value)
+    "
+  >
+    Dodaj kontakt
+  </button>
+</div>

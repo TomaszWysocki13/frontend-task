@@ -23,7 +23,9 @@ table {
   width: 100%;
   table-layout: fixed;
   min-width: 800px;
-  td {
-    // width: calc(100% / 6);
+
+  tr.element-row:hover {
+    background: whitesmoke;
+    cursor: pointer;
   }
 }
