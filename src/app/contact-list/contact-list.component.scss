@@ -24,8 +24,14 @@ table {
   table-layout: fixed;
   min-width: 800px;
 
-  tr.element-row:hover {
-    background: whitesmoke;
-    cursor: pointer;
+  tr {
+    td {
+      overflow-x: auto;
+    }
+
+    &.element-row:hover {
+      background: whitesmoke;
+      cursor: pointer;
+    }
   }
 }

@@ -17,9 +17,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { MessagesComponent } from './messages/messages.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSelectModule } from '@angular/material/select';
+import { ContactEditComponent } from './contact-edit/contact-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,18 +31,22 @@ import { CommonModule } from '@angular/common';
     ContactDetailsComponent,
     AddContactComponent,
     MessagesComponent,
+    ContactEditComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule,
     MatListModule,
     MatButtonModule,
     MatTableModule,
     MatIconModule,
     MatFormFieldModule,
+    MatDividerModule,
+    MatSelectModule,
     MatInputModule,
     ToastrModule.forRoot({
       timeOut: 5000,

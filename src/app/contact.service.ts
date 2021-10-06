@@ -51,7 +51,10 @@ export class ContactService {
   getContact(id: number): Observable<Contact> {
     const url = `${this.contactsUrl}/${id}`;
     return this.http.get<Contact>(url).pipe(
-      tap((_) => this.log(`Pobrano dane kontaktu o id ${id}`)),
+      tap((_) => {
+        this.log(`Pobrano dane kontaktu o id ${id}`);
+        console.log('asd');
+      }),
       catchError(
         this.handleError<Contact>(
           `Nie udało się pobrać danych kontaktu o id ${id}`

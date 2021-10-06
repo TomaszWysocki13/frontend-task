@@ -13,7 +13,6 @@ import { ContactService } from '../contact.service';
 })
 export class ContactDetailsComponent implements OnInit {
   contact: Contact | undefined;
-
   constructor(
     private route: ActivatedRoute,
     private contactService: ContactService,
@@ -33,13 +32,5 @@ export class ContactDetailsComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
-  }
-
-  save(): void {
-    if (this.contact) {
-      this.contactService
-        .updateContact(this.contact)
-        .subscribe(() => this.goBack());
-    }
   }
 }
