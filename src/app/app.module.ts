@@ -18,21 +18,17 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { MessagesComponent } from './messages/messages.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
 import { ContactEditComponent } from './contact-edit/contact-edit.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { DialogDeleteContactComponent } from './dialog-delete-contact/dialog-delete-contact.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ContactListComponent,
-    ContactDetailsComponent,
-    AddContactComponent,
-    MessagesComponent,
-    ContactEditComponent,
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -45,9 +41,12 @@ import { ContactEditComponent } from './contact-edit/contact-edit.component';
     MatTableModule,
     MatIconModule,
     MatFormFieldModule,
+    MatTooltipModule,
     MatDividerModule,
     MatSelectModule,
     MatInputModule,
+    MatDialogModule,
+    MatPaginatorModule,
     ToastrModule.forRoot({
       timeOut: 5000,
       closeButton: true,
@@ -59,7 +58,18 @@ import { ContactEditComponent } from './contact-edit/contact-edit.component';
       dataEncapsulation: false,
     }),
   ],
-  providers: [],
+  declarations: [
+    AppComponent,
+    AddContactComponent,
+    ContactListComponent,
+    ContactDetailsComponent,
+    ContactEditComponent,
+    DialogDeleteContactComponent,
+    MessagesComponent,
+  ],
+  exports: [ContactListComponent],
+  entryComponents: [DialogDeleteContactComponent],
+  providers: [ContactListComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

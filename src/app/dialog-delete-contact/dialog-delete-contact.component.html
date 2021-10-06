@@ -1,0 +1,19 @@
+<h3 mat-dialog-title>Potwierdź czynność</h3>
+<mat-dialog-content>
+  <p>Cy na pewno chcesz usunąć poniższy kontakt?</p>
+  <b class="contact-name-big">{{ data.nickname }} </b>
+  <span class="contact-name"> ({{ data.name }} {{ data.surname }})</span>
+  <hr />
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Anuluj</button>
+  <button
+    (click)="confirm()"
+    mat-button
+    [mat-dialog-close]="true"
+    mat-flat-button
+    color="warn"
+  >
+    Usuń
+  </button>
+</mat-dialog-actions>

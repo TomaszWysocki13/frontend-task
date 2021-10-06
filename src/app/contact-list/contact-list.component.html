@@ -30,12 +30,48 @@
       <td mat-cell *matCellDef="let contact">{{ contact.sex }}</td>
     </ng-container>
 
+    <ng-container matColumnDef="operations">
+      <th mat-header-cell *matHeaderCellDef>Operacje</th>
+      <td mat-cell *matCellDef="let contact">
+        <mat-icon
+          class="icon icon--details"
+          aria-hidden="false"
+          aria-label="Szczegóły kontaktu"
+          matTooltip="Szczegóły kontaktu"
+          matTooltipClass="blue-tooltip"
+          matTooltipPosition="above"
+          routerLink="/clients/details/{{ contact.id }}"
+          >info_outline</mat-icon
+        >
+        <mat-icon
+          class="icon icon--edit"
+          aria-hidden="false"
+          aria-label="Edytuj kontakt"
+          matTooltip="Edytuj kontakt"
+          matTooltipClass="blue-tooltip"
+          matTooltipPosition="above"
+          routerLink="/clients/edit/{{ contact.id }}"
+          >edit</mat-icon
+        >
+        <!-- (click)="delete(contact)" -->
+        <mat-icon
+          class="icon icon--delete"
+          aria-hidden="false"
+          aria-label="Usuń kontakt"
+          matTooltip="Usuń kontakt"
+          matTooltipClass="red-tooltip"
+          matTooltipPosition="above"
+          (click)="openDialog(contact)"
+          >delete_outline</mat-icon
+        >
+      </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr
       mat-row
       class="element-row"
       *matRowDef="let row; columns: displayedColumns"
-      routerLink="/clients/details/{{ row.id }}"
     ></tr>
   </table>
 </div>

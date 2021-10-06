@@ -81,7 +81,7 @@ export class ContactEditComponent implements OnInit {
       this.contact.nickname = this.contact.nickname.trim();
       this.contact.name = this.contact.name.trim();
       this.contact.surname = this.contact.surname.trim();
-      this.contact.phone = this.contact.phone;
+      this.contact.phone = this.contact.phone.trim();
       this.contact.email = this.contact.email.trim();
 
       if (

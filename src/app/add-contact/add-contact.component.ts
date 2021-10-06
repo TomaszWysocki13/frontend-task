@@ -71,6 +71,7 @@ export class AddContactComponent implements OnInit {
     nickname = nickname.trim();
     name = name.trim();
     surname = surname.trim();
+    phone = phone.trim();
     email = email.trim();
 
     if (!nickname || !sex || !name || !surname || !email || !phone) {

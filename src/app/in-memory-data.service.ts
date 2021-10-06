@@ -10,40 +10,62 @@ export class InMemoryDataService implements InMemoryDbService {
     const contacts = [
       {
         id: 1,
-        nickname: 'TomWys',
-        name: 'Tomek',
-        surname: 'Wysocki',
-        email: 'tomek@email.com',
-        phone: 697697697,
-        sex: 'mężczyzna',
-      },
-      {
-        id: 2,
-        nickname: 'AnnKwi',
-        name: 'Anna',
-        surname: 'Kwiatkowska',
-        email: 'ania@email.com',
-        phone: 147852369,
+        nickname: 'Doris :)',
+        name: 'Doris',
+        surname: 'Diaz',
+        email: 'Doris@email.com',
+        phone: '570169736 ',
         sex: 'kobieta',
       },
       {
-        id: 3,
-        nickname: 'JanKow',
-        name: 'Jan',
-        surname: 'Kowalski',
-        email: 'janek@email.com',
-        phone: 794568468,
+        id: 2,
+        nickname: 'syn Wesley',
+        name: 'Wesley',
+        surname: 'Lewis',
+        email: 'Wesley@email.com',
+        phone: '450990992 ',
         sex: 'mężczyzna',
+      },
+      {
+        id: 3,
+        nickname: 'BF',
+        name: 'Mae',
+        surname: 'Alvarez',
+        email: 'Mae@email.com',
+        phone: '868031610 ',
+        sex: 'kobieta',
+      },
+      {
+        id: 4,
+        nickname: 'Tato',
+        name: 'Geoffrey',
+        surname: 'Ramirez',
+        email: 'Geoffrey@email.com',
+        phone: '957419262 ',
+        sex: 'mężczyzna',
+      },
+      {
+        id: 5,
+        nickname: 'Mama',
+        name: 'Aubrey',
+        surname: 'Ramirez',
+        email: 'Aubrey@email.com',
+        phone: '261728329 ',
+        sex: 'kobieta',
+      },
+      {
+        id: 6,
+        nickname: 'Heather Sanders',
+        name: 'Heather',
+        surname: 'Sanders',
+        email: 'Heather@email.com',
+        phone: '551163809 ',
+        sex: 'kobieta',
       },
     ];
     return { contacts };
   }
 
-  // Overrides the genId method to ensure that a hero always has an id.
-  // If the heroes array is empty,
-  // the method below returns the initial number (11).
-  // if the heroes array is not empty, the method below returns the highest
-  // hero id + 1.
   genId(contacts: Contact[]): number {
     return contacts.length > 0
       ? Math.max(...contacts.map((contact) => contact.id)) + 1

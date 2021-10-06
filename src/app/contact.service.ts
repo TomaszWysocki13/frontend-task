@@ -28,16 +28,15 @@ export class ContactService {
       console.error(error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
-      this.log(`${operation} nieudana: ${error.message}`);
+      this.log(`${operation} nieudana: ${error.message}.`);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
   }
 
-  /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    this.messageService.add(`ContactService: ${message}`);
+    this.messageService.add(`ContactService: ${message}.`);
     this.toastr.success(message);
   }
 
@@ -52,12 +51,12 @@ export class ContactService {
     const url = `${this.contactsUrl}/${id}`;
     return this.http.get<Contact>(url).pipe(
       tap((_) => {
-        this.log(`Pobrano dane kontaktu o id ${id}`);
+        this.log(`Pobrano dane kontaktu o id ${id}.`);
         console.log('asd');
       }),
       catchError(
         this.handleError<Contact>(
-          `Nie udało się pobrać danych kontaktu o id ${id}`
+          `Nie udało się pobrać danych kontaktu o id ${id}.`
         )
       )
     );
@@ -65,20 +64,30 @@ export class ContactService {
 
   updateContact(contact: Contact): Observable<any> {
     return this.http.put(this.contactsUrl, contact, this.httpOptions).pipe(
-      tap((_) => this.log(`Zaktualizowano kontakt o id ${contact.id}`)),
+      tap((_) => this.log(`Zaktualizowano kontakt o id ${contact.id}.`)),
       catchError(this.handleError<any>('Nie udało się zaktualizować kontaktu.'))
     );
   }
 
-  /** POST: add a new hero to the server */
   addContact(contact: Contact): Observable<Contact> {
     return this.http
       .post<Contact>(this.contactsUrl, contact, this.httpOptions)
       .pipe(
         tap((newContact: Contact) =>
-          this.log(`Dodano kontakt o id ${newContact.id}`)
+          this.log(`Dodano kontakt o id ${newContact.id}.`)
         ),
         catchError(this.handleError<Contact>('Nie można było dodać kontaktu.'))
       );
+  }
+
+  deleteContact(id: number): Observable<Contact> {
+    const url = `${this.contactsUrl}/${id}`;
+
+    return this.http.delete<Contact>(url, this.httpOptions).pipe(
+      tap((_) => this.log(`Usunięto kontakt o id=${id}`)),
+      catchError(
+        this.handleError<Contact>('Nie udało się usunąć kontaktu o id=${id}.')
+      )
+    );
   }
 }
