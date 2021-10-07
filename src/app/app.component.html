@@ -11,10 +11,16 @@
       <div class="col">
         <nav class="navigation text-center my-3">
           <a mat-flat-button color="primary" routerLink="/"
-            ><mat-icon aria-hidden="false" aria-label="Example home icon"
+            ><mat-icon aria-hidden="false" aria-label="Strona główna"
               >home</mat-icon
             >
             Strona główna</a
+          >
+          <a mat-flat-button routerLink="/logs"
+            ><mat-icon aria-hidden="false" aria-label="Logi"
+              >info_outline</mat-icon
+            >
+            Logi</a
           >
         </nav>
       </div>
@@ -24,11 +30,6 @@
         <div class="content">
           <router-outlet></router-outlet>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <app-messages></app-messages>
       </div>
     </div>
   </div>

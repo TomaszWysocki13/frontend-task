@@ -3,6 +3,7 @@ import { Contact } from '../contact';
 import { ContactService } from '../contact.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogDeleteContactComponent } from '../dialog-delete-contact/dialog-delete-contact.component';
+import { DialogAddContactComponent } from '../dialog-add-contact/dialog-add-contact.component';
 
 @Component({
   selector: 'app-contact-list',
@@ -42,10 +43,16 @@ export class ContactListComponent implements OnInit {
     this.contactService.deleteContact(contact.id).subscribe();
   }
 
-  openDialog(contacts: Contact): void {
+  openDelDialog(contacts: Contact): void {
     const dialogRef = this.dialog.open(DialogDeleteContactComponent, {
       data: contacts,
     });
+    dialogRef.afterClosed().subscribe((result) => {
+      this.getContacts();
+    });
+  }
+  openAddDialog(): void {
+    const dialogRef = this.dialog.open(DialogAddContactComponent, {});
     dialogRef.afterClosed().subscribe((result) => {
       this.getContacts();
     });

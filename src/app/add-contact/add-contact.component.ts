@@ -3,7 +3,9 @@ import { Contact } from '../contact';
 import { ContactService } from '../contact.service';
 import { ContactDetailsComponent } from '../contact-details/contact-details.component';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 import { Sex } from '../sex';
+import { MatDialogRef } from '@angular/material/dialog';
 import {
   FormControl,
   FormGroupDirective,
@@ -54,8 +56,9 @@ export class AddContactComponent implements OnInit {
 
   constructor(
     private contactService: ContactService,
-    private contactDetails: ContactDetailsComponent,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router,
+    public dialogRef: MatDialogRef<AddContactComponent>
   ) {}
 
   ngOnInit(): void {}
@@ -82,7 +85,13 @@ export class AddContactComponent implements OnInit {
       .addContact({ nickname, name, surname, email, phone, sex } as Contact)
       .subscribe((contact) => {
         this.contacts.push(contact);
-        this.contactDetails.goBack();
+        if (this.router.url == '/contact-list') {
+          this.dialogRef.close();
+        }
+        this.router.navigate(['/']);
       });
+  }
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }

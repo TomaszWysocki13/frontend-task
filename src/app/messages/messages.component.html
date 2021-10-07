@@ -1,9 +1,10 @@
-<div *ngIf="messageService.messages.length == -1">
-  <h2>Logi</h2>
+<h2>Logi</h2>
+<div *ngIf="messageService.messages.length">
+  <hr />
   <button
     mat-flat-button
     color="warn"
-    class="clear"
+    class="clear mb-3"
     (click)="messageService.clear()"
   >
     Wyczyść powiadomienia

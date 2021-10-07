@@ -52,7 +52,6 @@ export class ContactService {
     return this.http.get<Contact>(url).pipe(
       tap((_) => {
         this.log(`Pobrano dane kontaktu o id ${id}.`);
-        console.log('asd');
       }),
       catchError(
         this.handleError<Contact>(

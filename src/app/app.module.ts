@@ -19,7 +19,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { MessagesComponent } from './messages/messages.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
@@ -27,6 +27,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { ContactEditComponent } from './contact-edit/contact-edit.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DialogDeleteContactComponent } from './dialog-delete-contact/dialog-delete-contact.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { DialogAddContactComponent } from './dialog-add-contact/dialog-add-contact.component';
 
 @NgModule({
   imports: [
@@ -65,11 +67,19 @@ import { DialogDeleteContactComponent } from './dialog-delete-contact/dialog-del
     ContactDetailsComponent,
     ContactEditComponent,
     DialogDeleteContactComponent,
+    DialogAddContactComponent,
     MessagesComponent,
+    NotfoundComponent,
   ],
   exports: [ContactListComponent],
-  entryComponents: [DialogDeleteContactComponent],
-  providers: [ContactListComponent],
+  entryComponents: [DialogDeleteContactComponent, DialogAddContactComponent],
+  providers: [
+    ContactListComponent,
+    {
+      provide: MatDialogRef,
+      useValue: {},
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

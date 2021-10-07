@@ -61,7 +61,7 @@
           matTooltip="Usuń kontakt"
           matTooltipClass="red-tooltip"
           matTooltipPosition="above"
-          (click)="openDialog(contact)"
+          (click)="openDelDialog(contact)"
           >delete_outline</mat-icon
         >
       </td>
@@ -80,7 +80,7 @@
     mat-flat-button
     color="primary"
     class="mt-3"
-    routerLink="/add-contact"
+    (click)="openAddDialog()"
   >
     Dodaj kontakt
   </button>
