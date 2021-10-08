@@ -1,0 +1,13 @@
+<h2>Logi</h2>
+<div *ngIf="messageService.messages.length">
+  <hr />
+  <button
+    mat-flat-button
+    color="warn"
+    class="clear mb-3"
+    (click)="messageService.clear()"
+  >
+    Wyczyść powiadomienia
+  </button>
+  <div *ngFor="let message of messageService.messages">{{ message }}</div>
+</div>

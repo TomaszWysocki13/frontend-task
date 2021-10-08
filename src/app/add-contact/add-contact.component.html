@@ -1,0 +1,139 @@
+<header>
+  <h2 class="text-center pb-3">
+    <span class="title">Dodaj nowy kontakt</span>
+  </h2>
+</header>
+<table cellspacing="0">
+  <tr>
+    <td>
+      <mat-form-field appearance="outline">
+        <mat-label>Pseudonim</mat-label>
+        <input
+          maxlength="24"
+          matInput
+          [formControl]="formControlNickname"
+          [errorStateMatcher]="matcher"
+          #contactNickname
+        />
+        <mat-hint align="end">{{ contactNickname.value.length }} / 24</mat-hint>
+        <mat-hint>*pole wymagane</mat-hint>
+        <mat-error *ngIf="formControlNickname.hasError('required')">
+          Pseudonim jest <strong>wymagany!</strong>
+        </mat-error>
+      </mat-form-field>
+    </td>
+
+    <td>
+      <mat-form-field appearance="outline">
+        <mat-label>Płeć</mat-label>
+        <mat-select
+          [(ngModel)]="selectedValue"
+          name="sex"
+          [formControl]="formControlSex"
+          [errorStateMatcher]="matcher"
+        >
+          <mat-option *ngFor="let sex of sexes" [value]="sex.viewValue">
+            {{ sex.viewValue }}
+          </mat-option>
+        </mat-select>
+        <mat-hint>*pole wymagane</mat-hint>
+        <mat-error *ngIf="formControlSex.hasError('required')">
+          Płeć jest <strong>wymagana!</strong>
+        </mat-error>
+      </mat-form-field>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <mat-form-field appearance="outline">
+        <mat-label>Imię</mat-label>
+        <input
+          matInput
+          #contactName
+          [formControl]="formControlName"
+          [errorStateMatcher]="matcher"
+          maxlength="24"
+        />
+        <mat-hint align="end">{{ contactName.value.length }} / 24</mat-hint>
+        <mat-hint>*pole wymagane</mat-hint>
+        <mat-error *ngIf="formControlName.hasError('required')">
+          Imię jest <strong>wymagane!</strong>
+        </mat-error>
+      </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field appearance="outline">
+        <mat-label>Nazwisko</mat-label>
+        <input
+          matInput
+          #contactSurname
+          [formControl]="formControlSurname"
+          [errorStateMatcher]="matcher"
+          maxlength="24"
+        />
+        <mat-hint align="end">{{ contactSurname.value.length }} / 24</mat-hint>
+        <mat-hint>*pole wymagane</mat-hint>
+        <mat-error *ngIf="formControlSurname.hasError('required')">
+          Nazwisko jest <strong>wymagane!</strong>
+        </mat-error>
+      </mat-form-field>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <mat-form-field appearance="outline">
+        <mat-label>Nr telefonu</mat-label>
+        <input
+          matInput
+          #contactPhone
+          [formControl]="formControlPhone"
+          [errorStateMatcher]="matcher"
+          maxlength="12"
+        />
+        <mat-hint align="end">{{ contactPhone.value.length }} / 12</mat-hint>
+        <mat-hint>*pole wymagane</mat-hint>
+        <mat-error *ngIf="formControlPhone.hasError('required')">
+          Nr telefonu jest <strong>wymagany!</strong>
+        </mat-error>
+      </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input
+          matInput
+          #contactEmail
+          [formControl]="formControlEmail"
+          [errorStateMatcher]="matcher"
+          maxlength="32"
+        />
+        <mat-hint align="end">{{ contactEmail.value.length }} / 32</mat-hint>
+        <mat-hint>*pole wymagane</mat-hint>
+        <mat-error *ngIf="formControlEmail.hasError('required')">
+          E-mail jest <strong>wymagany!</strong>
+        </mat-error>
+      </mat-form-field>
+    </td>
+  </tr>
+</table>
+<mat-divider class="my-3"></mat-divider>
+<div class="text-center">
+  <button mat-flat-button (click)="onNoClick()" routerLink="/">Powrót</button>
+
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="
+      add(
+        contactNickname.value,
+        contactName.value,
+        contactSurname.value,
+        contactEmail.value,
+        contactPhone.value,
+        selectedValue
+      )
+    "
+  >
+    Zapisz kontakt
+  </button>
+</div>

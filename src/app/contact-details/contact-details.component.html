@@ -1,0 +1,48 @@
+<div *ngIf="contact">
+  <header>
+    <h2 class="text-center pb-3">
+      <span class="title">Szczegóły kontaktu</span
+      ><b class="new-line">{{ contact.nickname }}</b>
+    </h2>
+  </header>
+  <div class="details">
+    <mat-list role="list" class="center">
+      <mat-list-item role="listitem"
+        ><p class="top">Pseudonim:</p>
+        <strong>{{ contact.nickname }}</strong></mat-list-item
+      >
+      <mat-list-item role="listitem"
+        ><p class="top">Imie:</p>
+        <strong>{{ contact.name }}</strong></mat-list-item
+      >
+      <mat-list-item role="listitem"
+        ><p class="top">Nazwisko:</p>
+        <strong>{{ contact.surname }}</strong></mat-list-item
+      >
+      <mat-list-item role="listitem"
+        ><p class="top">Nr telefonu:</p>
+        <strong>{{ contact.phone }}</strong></mat-list-item
+      >
+      <mat-list-item role="listitem"
+        ><p class="top">E-mail:</p>
+        <strong>{{ contact.email }}</strong></mat-list-item
+      >
+      <mat-list-item role="listitem"
+        ><p class="top">Płeć:</p>
+        <strong>{{ contact.sex }}</strong></mat-list-item
+      >
+    </mat-list>
+  </div>
+  <mat-divider class="my-3"></mat-divider>
+</div>
+<div class="text-center">
+  <button mat-flat-button (click)="goBack()">Powrót</button>
+  <button
+    *ngIf="contact"
+    mat-flat-button
+    color="primary"
+    routerLink="/clients/edit/{{ contact.id }}"
+  >
+    Edytuj kontakt
+  </button>
+</div>

@@ -3,5 +3,12 @@
   background-color: #fff;
   border-color: #eee;
   padding: 15px;
-  margin-top: 15px;
+}
+nav {
+  a {
+    margin-right: 10px;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }

@@ -9,10 +9,26 @@
     </div>
     <div class="row">
       <div class="col">
+        <nav class="navigation text-center my-3">
+          <a mat-flat-button color="primary" routerLink="/"
+            ><mat-icon aria-hidden="false" aria-label="Strona główna"
+              >home</mat-icon
+            >
+            Strona główna</a
+          >
+          <a mat-flat-button routerLink="/logs"
+            ><mat-icon aria-hidden="false" aria-label="Logi"
+              >info_outline</mat-icon
+            >
+            Logi</a
+          >
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
         <div class="content">
           <router-outlet></router-outlet>
-          <hr />
-          <button mat-flat-button color="primary">Dodaj kontakt</button>
         </div>
       </div>
     </div>
